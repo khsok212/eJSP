@@ -34,7 +34,7 @@ import org.slf4j.LoggerFactory;
 public class HelloServlet extends HttpServlet {
 	
 	private Logger logger =  LoggerFactory.getLogger(HelloServlet.class);
-	
+	//안녕
 	@Override
 	public void init() throws ServletException {
 //		System.out.println("HelloServlet init()");
