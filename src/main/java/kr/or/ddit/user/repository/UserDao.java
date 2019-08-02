@@ -19,11 +19,11 @@ public class UserDao implements IUserDao{
 	public List<UserVo> getUserList() {
 		//db에서 조회가 되었다고 가정하고 가짜 객체를 리턴
 		List<UserVo> userList = new ArrayList<UserVo>();
-		userList.add(new UserVo("집에"));
-		userList.add(new UserVo("가고"));
-		userList.add(new UserVo("싶다"));
-		userList.add(new UserVo("빨리"));
-		userList.add(new UserVo("가자"));
+		userList.add(new UserVo("강해신"));
+		userList.add(new UserVo("박진하"));
+		userList.add(new UserVo("윤경주"));
+		userList.add(new UserVo("김도훈"));
+		userList.add(new UserVo("홍다은"));
 		
 		return userList;
 	}
