@@ -26,18 +26,17 @@
 	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
 		<file>d:\log\test.log</file>
 		<encoder>
-			<pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n
-			</pattern>
+			<pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
 		</encoder>
 	</appender>
 
 
 	<logger name="kr.or.ddit" level="debug">
-		<appender-ref ref="STDOUT2" />
+		<appender-ref ref="STDOUT2"/>
 	</logger>
 
-	<logger name="kr.or.servlet" level="debug">
-		<appender-ref ref="FILE" />
+	<logger name="kr.or.ddit.servlet" level="debug">
+		<appender-ref ref="FILE"/>
 	</logger>
 	<!-- <root level="debug"> root level 설정에 따라서 trace, debug, info, warn, error 
 		<appender-ref ref="STDOUT" /> </root> -->
