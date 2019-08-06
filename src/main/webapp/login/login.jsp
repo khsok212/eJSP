@@ -44,16 +44,16 @@
         	// getAttribute에서 parameter에서 바꾸면 값이 남아잇는다.
 //         	String userId = (String)request.getAttribute("userId");
 //         	userId = userId == null ? "" : userId;
-				
+		
 			String userId = request.getParameter("userId");
          	userId = userId == null ? "" : userId;
         
         %>
         
-        <input type="text" id="userId" name = "userId" class="form-control" placeholder="userId" required autofocus value ="<%=userId%>"> <!-- value = "kang" --> 
+        <input type="text" id="userId" name = "userId" class="form-control" placeholder="userId" required autofocus value = "kang"> <!-- value = "kang" --> 
         
         <label for="pass" class="sr-only">Password</label>
-        <input type="password" id="pass" name = "pass" class="form-control" placeholder="Password" required> <!-- value = "123" -->
+        <input type="password" id="pass" name = "pass" class="form-control" placeholder="Password" required value = "123"> <!-- value = "123" -->
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Remember me
