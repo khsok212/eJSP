@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 
 import kr.or.ddit.user.model.UserVo;
 
-@WebServlet("/login")
+@WebServlet( urlPatterns = {"/login"}, loadOnStartup = 5 )
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -31,8 +31,9 @@ public class LoginController extends HttpServlet {
 	* @throws IOException
 	* Method 설명 : 로그인 화면 요청 처리(forward)
 	 */
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//webapp/jsp/login.jsp  -->  /jsp/login.jsp
+		// webapp/jsp/login.jsp  -->  /jsp/login.jsp
 		
 		request.getRequestDispatcher("/login/login.jsp").forward(request, response);
 	}

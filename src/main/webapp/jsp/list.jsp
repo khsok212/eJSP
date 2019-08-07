@@ -33,14 +33,14 @@
 		<%-- 향상된 for문  --%>
 		<%for(UserVo userVo : userList) { %>
 			<tr>
-				<td><%= userVo.getUserName() %></td>
+				<td><%= userVo.getUserNm() %></td>
 			</tr>
 		<% } %>
 		
 		<%-- 일반 for문 --%>
 		<% for(int i = 0; i < userList.size(); i++){ %>
 		<tr>
-			<td><%= userList.get(i).getUserName() %></td>
+			<td><%= userList.get(i).getUserNm() %></td>
 		</tr>
 		<% } %>
 	</table>

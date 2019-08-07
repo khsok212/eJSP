@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.TimeZone;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -36,9 +37,10 @@ public class HelloServlet extends HttpServlet {
 	private Logger logger =  LoggerFactory.getLogger(HelloServlet.class);
 	//안녕
 	@Override
-	public void init() throws ServletException {
+	public void init(ServletConfig config) throws ServletException {
+		config.getInitParameter("test");
 //		System.out.println("HelloServlet init()");
-		logger.debug("HelloServlet doGet()");
+		logger.debug("HelloServlet init() : {}", config.getInitParameter("test"));
 	}
 	
 	@Override

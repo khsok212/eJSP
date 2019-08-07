@@ -87,7 +87,7 @@
 				%>
 				<tr>
 					<td><%=userVo.getUserId() %></td>			<!-- 사용자 아이디  -->
-					<td><%=userVo.getUserName() %></td> <!-- 사용자 이름  -->
+					<td><%=userVo.getUserNm() %></td> <!-- 사용자 이름  -->
 					<td></td> <!-- 사용자 별명  -->
 					<td></td> <!-- 등록일시  -->
 				</tr>

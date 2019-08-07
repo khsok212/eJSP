@@ -54,7 +54,7 @@
 		
 					UserVo userVo = (UserVo)session.getAttribute("S_USERVO");
 					String userName = "";
-					userName = userVo == null ? "" : userVo.getUserName();
+					userName = userVo == null ? "" : userVo.getUserNm();
 				%>
 				<li><a href="#"><%=userName %></a></li>
 			</ul>
