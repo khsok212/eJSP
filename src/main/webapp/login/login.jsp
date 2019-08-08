@@ -50,10 +50,10 @@
         
         %>
         
-        <input type="text" id="userId" name = "userId" class="form-control" placeholder="userId" required autofocus value = "kang"> <!-- value = "kang" --> 
+        <input type="text" id="userId" name = "userId" class="form-control" placeholder="userId" required autofocus value = "brown"> <!-- value = "kang" --> 
         
         <label for="pass" class="sr-only">Password</label>
-        <input type="password" id="pass" name = "pass" class="form-control" placeholder="Password" required value = "123"> <!-- value = "123" -->
+        <input type="password" id="pass" name = "pass" class="form-control" placeholder="Password" required value = "brown1234"> <!-- value = "123" -->
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Remember me
