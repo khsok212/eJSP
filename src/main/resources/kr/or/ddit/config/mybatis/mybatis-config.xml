@@ -7,7 +7,7 @@
 	
 	<!-- 별칭설정  -->
 	<typeAliases>
-		<typeAlias alias="userVo" type="kr.or.ddit.user.model.UserVo"/>
+		<typeAlias alias="userVo" type="kr.or.ddit.user.model.User"/>
 	</typeAliases>
 	
   <environments default="development">

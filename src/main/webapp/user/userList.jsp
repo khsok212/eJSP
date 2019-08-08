@@ -1,4 +1,4 @@
-<%@page import="kr.or.ddit.user.model.UserVo"%>
+<%@page import="kr.or.ddit.user.model.User"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -22,11 +22,11 @@
 <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
 
 <!-- Bootstrap core CSS -->
-<script src="<%=request.getContextPath() %>/bootstrap/js/bootstrap.min.js"></script>
+<script src="<%=request.getContextPath()%>/bootstrap/js/bootstrap.min.js"></script>
 
 <!-- Custom styles for this templet -->
-<link href="<%=request.getContextPath() %>/css/dashboard.css" rel="stylesheet">
-<link href="<%=request.getContextPath() %>/css/blog.css" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/css/dashboard.css" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/css/blog.css" rel="stylesheet">
 
 </head>
 
@@ -79,12 +79,11 @@
 				</tr>
 				
 				<%
-					// UserListController에서 지정한 request.setAttribute("userList", userList); 아이디 이름으로 가져온다.
-					List<UserVo> userList = (List<UserVo>)request.getAttribute("userList");
-		
-					for(UserVo userVo : userList){
-						
-				%>
+									// UserListController에서 지정한 request.setAttribute("userList", userList); 아이디 이름으로 가져온다.
+											List<User> userList = (List<User>)request.getAttribute("userList");
+										
+											for(User userVo : userList){
+								%>
 				<tr>
 					<td><%=userVo.getUserId() %></td>			<!-- 사용자 아이디  -->
 					<td><%=userVo.getUserNm() %></td> <!-- 사용자 이름  -->

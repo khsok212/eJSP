@@ -1,4 +1,4 @@
-<%@page import="kr.or.ddit.user.model.UserVo"%>
+<%@page import="kr.or.ddit.user.model.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -21,11 +21,11 @@
 <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
 
 <!-- Bootstrap core CSS -->
-<script src="<%=request.getContextPath() %>/bootstrap/js/bootstrap.min.js"></script>
+<script src="<%=request.getContextPath()%>/bootstrap/js/bootstrap.min.js"></script>
 
 <!-- Custom styles for this templet -->
-<link href="<%=request.getContextPath() %>/css/dashboard.css" rel="stylesheet">
-<link href="<%=request.getContextPath() %>/css/blog.css" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/css/dashboard.css" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/css/blog.css" rel="stylesheet">
 </head>
 
 <body>
@@ -49,12 +49,12 @@
 				<li><a href="#">Profile</a></li>
 				<li><a href="#">Help</a></li>
 				<%
-// 					HttpSession httpSession = request.getSession();
-// 					UserVo userVo = (UserVo)httpSession.getAttribute("S_USERVO");
-		
-					UserVo userVo = (UserVo)session.getAttribute("S_USERVO");
-					String userName = "";
-					userName = userVo == null ? "" : userVo.getUserNm();
+					// 					HttpSession httpSession = request.getSession();
+				// 					UserVo userVo = (UserVo)httpSession.getAttribute("S_USERVO");
+						
+							User userVo = (User)session.getAttribute("S_USERVO");
+							String userName = "";
+							userName = userVo == null ? "" : userVo.getUserNm();
 				%>
 				<li><a href="#"><%=userName %></a></li>
 			</ul>
