@@ -23,10 +23,12 @@
 	
 	<script src="<%=request.getContextPath()%>/js/jquery-3.4.1.min.js"></script>
 	
+	<script src="<%=request.getContextPath()%>/js/js.cookie.js"></script>
+	
 	<script>
 	$(document).ready(function(){
 		
-		var userId = getCookie("userId");
+		var userId = Cookies.get("userId");
 		if(userId != undefined){
 			$('#userId').val(userId);
 			//remember me checkbox 체크
@@ -39,9 +41,11 @@
 			// userId 쿠키를 생성하고 값은 userId input의 값을 쿠키 값으로 설정
 			
 			if($('#rememberMe').prop("checked")){
-				setCookie("userId", $('#userId').val(), 30);
+// 				setCookie("userId", $('#userId').val(), 30);
+				Cookies.set("userId", $('#userId').val(), {expires : 30});
 			}else{
-				deleteCookie("userId");
+// 				deleteCookie("userId");
+				Cookies.remove("userId");
 			}
 			
 			// 로그인 요청
@@ -55,28 +59,28 @@
 		})
 	})
 	
-		function getCookie(cookieId){
+// 		function getCookie(cookieId){
 		
-			cookies = document.cookie.split("; ");
-			for(i = 0; i < cookies.length; i++) {
-				cookie = cookies[i];
-				cookieVal = cookie.split("=");
-				if(cookieId == cookieVal[0]) {
-					return cookieVal[1];
-				}
-			}
-		}
+// 			cookies = document.cookie.split("; ");
+// 			for(i = 0; i < cookies.length; i++) {
+// 				cookie = cookies[i];
+// 				cookieVal = cookie.split("=");
+// 				if(cookieId == cookieVal[0]) {
+// 					return cookieVal[1];
+// 				}
+// 			}
+// 		}
 		
-		function setCookie(cookieNm, cookieValue, expires){
-			var dt = new Date();
-			dt.setDate( dt.getDate() + Number(expires));
+// 		function setCookie(cookieNm, cookieValue, expires){
+// 			var dt = new Date();
+// 			dt.setDate( dt.getDate() + Number(expires));
 			
-			document.cookie = cookieNm + "=" + cookieValue + "; path=/; expires=" + dt.toGMTString();
-		}
+// 			document.cookie = cookieNm + "=" + cookieValue + "; path=/; expires=" + dt.toGMTString();
+// 		}
 		
-		function deleteCookie(cookieNm){
-			setCookie(cookieNm, "", -1);
-		}
+// 		function deleteCookie(cookieNm){
+// 			setCookie(cookieNm, "", -1);
+// 		}
 	</script>
   </head>
 

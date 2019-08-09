@@ -69,7 +69,12 @@ public class LoginController extends HttpServlet {
 		// 사용자가 입력한 파라미터 정보와 db에서 조회해 가져온 값이 동일할 경우 --> webapp/main.jsp
 		// 사용자가 입력한 파라미터 정보와 db에서 조회해 가져온 값이 다를 경우 --> webapp/login/login.jsp
 		
-		if(user.checkLoginValidate(userId, pass)) {
+		// db에 존재하지 않는 사용자 체크  --> 로그인 화면으로 이동
+		if(user == null) {
+			doGet(request, response);
+		}
+		
+		else if(user.checkLoginValidate(userId, pass)) {
 		
 //		if(userId.equals(user.getUserId()) && pass.equals(user.getPass())) {
 			
