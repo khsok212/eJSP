@@ -20,7 +20,64 @@
 
     <!-- Custom styles for this template -->
     <link href="<%=request.getContextPath()%>/css/signin.css" rel="stylesheet">
-
+	
+	<script src="<%=request.getContextPath()%>/js/jquery-3.4.1.min.js"></script>
+	
+	<script>
+	$(document).ready(function(){
+		
+		var userId = getCookie("userId");
+		if(userId != undefined){
+			$('#userId').val(userId);
+			//remember me checkbox 체크
+			$('#rememberMe').prop("checked", true);
+		}
+		//signin btn 클릭 이벤트 랜들러
+		$('#signinBtn').click(function(){
+			// remember me check box가 체크가 되었는지?
+			// 체크가 되었다면 
+			// userId 쿠키를 생성하고 값은 userId input의 값을 쿠키 값으로 설정
+			
+			if($('#rememberMe').prop("checked")){
+				setCookie("userId", $('#userId').val(), 30);
+			}else{
+				deleteCookie("userId");
+			}
+			
+			// 로그인 요청
+			$("#frm").submit();
+			
+			// 체크가 X
+			// 기존에 사용자가 아이디를 쿠키에 저장하는 기능을 사용하다가 더 이상 사용하지 않는 경우
+			// 처음부터 아이디 쿠키 저장 기능을 사용하지 않는 경우
+			// ==> userId 쿠키 삭제
+			
+		})
+	})
+	
+		function getCookie(cookieId){
+		
+			cookies = document.cookie.split("; ");
+			for(i = 0; i < cookies.length; i++) {
+				cookie = cookies[i];
+				cookieVal = cookie.split("=");
+				if(cookieId == cookieVal[0]) {
+					return cookieVal[1];
+				}
+			}
+		}
+		
+		function setCookie(cookieNm, cookieValue, expires){
+			var dt = new Date();
+			dt.setDate( dt.getDate() + Number(expires));
+			
+			document.cookie = cookieNm + "=" + cookieValue + "; path=/; expires=" + dt.toGMTString();
+		}
+		
+		function deleteCookie(cookieNm){
+			setCookie(cookieNm, "", -1);
+		}
+	</script>
   </head>
 
   <body>
@@ -36,7 +93,7 @@
 		%>
 		사용자 이름 : <%=userName %>
 		
-      <form class="form-signin" action = "<%=request.getContextPath() %>/login" method = "post">
+      <form id = "frm" class="form-signin" action = "<%=request.getContextPath() %>/login" method = "post">
         <h2 class="form-signin-heading">Please sign in</h2>
         
         <label for="userId" class="sr-only">userId</label>
@@ -50,16 +107,16 @@
         
         %>
         
-        <input type="text" id="userId" name = "userId" class="form-control" placeholder="userId" required autofocus value = "brown"> <!-- value = "kang" --> 
+        <input type="text" id="userId" name = "userId" class="form-control" placeholder="userId" required autofocus > <!-- value = "kang" --> 
         
         <label for="pass" class="sr-only">Password</label>
         <input type="password" id="pass" name = "pass" class="form-control" placeholder="Password" required value = "brown1234"> <!-- value = "123" -->
         <div class="checkbox">
           <label>
-            <input type="checkbox" value="remember-me"> Remember me
+            <input id = "rememberMe" type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button id = "signinBtn" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       </form>
 
     </div> <!-- /container -->
