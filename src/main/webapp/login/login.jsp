@@ -23,6 +23,7 @@
 	
 	<script src="<%=request.getContextPath()%>/js/jquery-3.4.1.min.js"></script>
 	
+	<!-- cookie 라이브러리 추가 -->
 	<script src="<%=request.getContextPath()%>/js/js.cookie.js"></script>
 	
 	<script>
@@ -33,8 +34,9 @@
 			$('#userId').val(userId);
 			//remember me checkbox 체크
 			$('#rememberMe').prop("checked", true);
+			$("#pass").focus();
 		}
-		//signin btn 클릭 이벤트 랜들러
+		//signin btn 클릭 이벤트 핸들러
 		$('#signinBtn').click(function(){
 			// remember me check box가 체크가 되었는지?
 			// 체크가 되었다면 
@@ -110,19 +112,18 @@
          	userId = userId == null ? "" : userId;
         
         %>
-        
         <input type="text" id="userId" name = "userId" class="form-control" placeholder="userId" required autofocus > <!-- value = "kang" --> 
         
         <label for="pass" class="sr-only">Password</label>
         <input type="password" id="pass" name = "pass" class="form-control" placeholder="Password" required value = "brown1234"> <!-- value = "123" -->
         <div class="checkbox">
           <label>
-            <input id = "rememberMe" type="checkbox" value="remember-me"> Remember me
+            <input id = "rememberMe" name = "rememberMe" type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
         <button id = "signinBtn" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       </form>
-
+	
     </div> <!-- /container -->
   </body>
 </html>
