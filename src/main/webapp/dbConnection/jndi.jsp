@@ -36,6 +36,7 @@
 		stmt.close();
 		connection.close();
 	}
+	
 		long end = System.currentTimeMillis();
 		
 		out.println("end - start : " + (end - start) + "ms<br>");

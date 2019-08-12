@@ -33,6 +33,5 @@ public class UserListController extends HttpServlet {
 		
 		// 위임한다.
 		request.getRequestDispatcher("/user/userList.jsp").forward(request, response);
-		
 	}
 }
