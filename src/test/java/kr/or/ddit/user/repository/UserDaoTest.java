@@ -26,7 +26,7 @@ public class UserDaoTest {
 		List<User> userList = userDao.getUserList();
 		
 		/***Then - 기술 ***/
-		assertEquals(5, userList.size());
+		assertEquals(105, userList.size());
 	}
 	
 	/**
@@ -48,6 +48,18 @@ public class UserDaoTest {
 		assertEquals("브라운", userVo.getUserNm());
 		assertEquals("brown1234", userVo.getPass());
 		
+	}
+	
+	@Test
+	public void getUserOnlyHalfTest() {
+		/***Given - 상황 ***/
+		IUserDao userDao = new UserDao();
+
+		/***When - 메서드 쿼리 ***/
+		List<User> userList = userDao.getUserListOnlyHalf();
+		
+		/***Then - 기술 ***/
+		assertEquals(50, userList.size());
 	}
 
 }

@@ -3,5 +3,7 @@
 
 	<ul class="nav nav-sidebar">
 		<li class="active"><a href="<%=request.getContextPath()%>/main.jsp">메인 <span class="sr-only">(current)</span></a></li>
-		<li class="active"><a href="#">사용자</a></li>
+		<li class="active"><a href="<%=request.getContextPath()%>/userList">사용자 리스트</a></li>
+		<li class="active"><a href="<%=request.getContextPath()%>/userListOnlyHalf">사용자 리스트(onlyHalf)</a></li>
+		<li class="active"><a href="<%=request.getContextPath()%>/lprodList">제품그룹 리스트</a></li>
 	</ul>
