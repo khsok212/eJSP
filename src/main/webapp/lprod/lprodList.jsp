@@ -17,16 +17,39 @@
 <script>
 	$(function(){
 		$(".lprodTr").click(function(){
-			$("#lprod_gu").val($(this).children().eq(1).text());
+			
+// 			var tdText = $($(this).children()[1]).text();
+// 			console.log("tdText: " + tdText);
+			
+// 			var inputValue = $(this).find("input").val();
+// 	        console.log("inputValue: " + inputValue);
+	         
+	        var dataValue = $(this).data("lprodgu");         
+	        console.log("dataValue: " + dataValue);
+	         
+	        $("#lprod_gu").val(dataValue);
+	        
+// 			$("#lprod_gu").val($(this).children().eq(1).text());
 			$("#frm").submit();
 			
 		});
 	});
 </script>
+<style>
+	td{
+		cursor: pointer;
+	}
+	.lprodTr:hover{
+		background: green;
+	}
+</style>
 </head>
 
 <body>
-	
+	<form id="frm" action="${cp}/prodList" method="get">
+       <input type="hidden" id="lprod_gu" name="lprod_gu"/>
+    </form>
+    
 	<!-- header -->
 	<%@ include file="/commonJsp/header.jsp"%>
 
@@ -54,7 +77,8 @@
 								</tr>
 
 								<c:forEach items="${lprodList}" var="lprod">
-									<tr class = "lprodTr">
+									<tr class = "lprodTr" data-lprodgu = "${lprod.lprod_gu }">
+									<input type = "hidden" value = "${lprod.lprod_gu }"/>
 										<td>${lprod.lprod_id }</td>
 										<td>${lprod.lprod_gu }</td>
 										<td>${lprod.lprod_nm }</td>

@@ -8,6 +8,7 @@
 	table{
 		text-align: center;
 	}
+	
 </style>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
