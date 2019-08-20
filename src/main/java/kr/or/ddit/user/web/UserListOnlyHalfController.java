@@ -9,8 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.ibatis.session.SqlSession;
+
 import kr.or.ddit.user.model.User;
 import kr.or.ddit.user.repository.UserDao;
+import kr.or.ddit.user.service.UserService;
+import kr.or.ddit.util.MybatisUtil;
 
 @WebServlet("/userListOnlyHalf")
 public class UserListOnlyHalfController extends HttpServlet {
@@ -21,8 +25,9 @@ public class UserListOnlyHalfController extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		UserDao userDao = new UserDao();
-		List<User> userList = userDao.getUserListOnlyHalf();
+		UserService userService = new UserService();
+		
+		List<User> userList = userService.getUserListOnlyHalf();
 		
 		// ★ 중요  "userList" 아이디로 넘긴다.
 		request.setAttribute("userList", userList);

@@ -14,7 +14,15 @@
 
 <title>Jsp-basicLib</title>
 <%@ include file = "/commonJsp/basicLib.jsp" %>
-
+<script>
+	$(function(){
+		$(".lprodTr").click(function(){
+			$("#lprod_gu").val($(this).children().eq(1).text());
+			$("#frm").submit();
+			
+		});
+	});
+</script>
 </head>
 
 <body>
@@ -46,7 +54,7 @@
 								</tr>
 
 								<c:forEach items="${lprodList}" var="lprod">
-									<tr>
+									<tr class = "lprodTr">
 										<td>${lprod.lprod_id }</td>
 										<td>${lprod.lprod_gu }</td>
 										<td>${lprod.lprod_nm }</td>

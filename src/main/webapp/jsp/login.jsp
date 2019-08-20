@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src = "<%=request.getContextPath() %>/js/jquery-3.4.1.min.js"></script>
+<script src = "${cp}/js/jquery-3.4.1.min.js"></script>
 <script>
 	// 문서 로딩이 완료된 다음에 실행하겠다
 	$(document).ready(function(){
@@ -42,7 +42,7 @@
 	get <input type = "radio" id = "get" name = "method" value = "get" checked/>
 	post <input type = "radio" id = "post" name = "method" value = "post"/><br><br>
 	
-	<form action = "<%=request.getContextPath() %>/jsp/loginProcess.jsp" method = "get">
+	<form action = "${cp}/jsp/loginProcess.jsp" method = "get">
 		user id : <input type = "text" name = "userId" value = "haesin"/><br>
 		user id : <input type = "text" name = "userId" value = "brown"/><br>
 		password : <input type = "password" name = "password" value = "kang"/><br><br>

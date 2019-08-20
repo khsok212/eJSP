@@ -10,4 +10,12 @@
 		order by 1
 	</select>
 	
+	<select id="getProdList" parameterType="String" resultType="HashMap">
+		select 	a.lprod_nm, b.prod_lgu, c.buyer_name, b.prod_id, b.prod_name, to_char(b.prod_price, 'L999,999,999') price
+		from	lprod a, prod b, buyer c
+		where	a.lprod_gu = b.prod_lgu
+		and		b.prod_buyer = c.buyer_id
+		and		a.lprod_gu = #{lprod_gu}
+	</select>
+	
 </mapper>

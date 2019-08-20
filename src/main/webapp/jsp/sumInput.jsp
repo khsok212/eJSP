@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action = "<%=request.getContextPath() %>/SumCalculation" method = "post">
+	<form action = "${cp}/SumCalculation" method = "post">
 		( ★ 첫번째 숫자  &lt; 두번째 숫자 )<br><br>
 		첫번째 숫자 입력 > <input type = "text" name = "start" value = "1"/><br><br>
 		두번째 숫자 입력 > <input type = "text" name = "end" value = "10"/><br><br>

@@ -14,7 +14,7 @@
 		where userId = #{userId}
 	</select>
 	
-	<select id="getUserOnlyHalf" resultType="userVo">   <!--  mybatis는 별칭 설정은 mybatis-config에서 설정한다. -->
+	<select id="getUserListOnlyHalf" resultType="userVo">   <!--  mybatis는 별칭 설정은 mybatis-config에서 설정한다. -->
 		select userId, USERNM, ALIAS, REG_DT ,rownum
 		from users
 		where rownum &lt;= 50

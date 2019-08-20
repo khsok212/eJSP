@@ -4,9 +4,11 @@ import static org.junit.Assert.*;
 
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
 import kr.or.ddit.user.model.User;
+import kr.or.ddit.util.MybatisUtil;
 
 public class UserDaoTest {
 	// 실행 > junit테스트
@@ -17,13 +19,16 @@ public class UserDaoTest {
 	* 변경이력 :
 	* Method 설명 : getUserList 테스트
 	*/
+	
+	SqlSession sqlSession = MybatisUtil.getSession();
+	
 	@Test
 	public void getUserListTest() {
 		/***Given - 상황 ***/
 		IUserDao userDao = new UserDao();
 
 		/***When - 메서드 쿼리 ***/
-		List<User> userList = userDao.getUserList();
+		List<User> userList = userDao.getUserList(sqlSession);
 		
 		/***Then - 기술 ***/
 		assertEquals(105, userList.size());
@@ -43,7 +48,7 @@ public class UserDaoTest {
 		IUserDao userDao = new UserDao();
 
 		/***When***/
-		User userVo = userDao.getUser(userId);
+		User userVo = userDao.getUser(sqlSession, userId);
 		/***Then***/
 		assertEquals("브라운", userVo.getUserNm());
 		assertEquals("brown1234", userVo.getPass());
@@ -56,7 +61,7 @@ public class UserDaoTest {
 		IUserDao userDao = new UserDao();
 
 		/***When - 메서드 쿼리 ***/
-		List<User> userList = userDao.getUserListOnlyHalf();
+		List<User> userList = userDao.getUserListOnlyHalf(sqlSession);
 		
 		/***Then - 기술 ***/
 		assertEquals(50, userList.size());
