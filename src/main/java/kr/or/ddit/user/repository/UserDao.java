@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import kr.or.ddit.common.model.Page;
 import kr.or.ddit.user.model.User;
 
 public class UserDao implements IUserDao{
@@ -55,6 +56,26 @@ public class UserDao implements IUserDao{
 	public List<User> getUserListOnlyHalf(SqlSession sqlSession) {
 		
 		return sqlSession.selectList("user.getUserListOnlyHalf");
+	}
+
+	/**
+	 * 
+	* Method : getUserPagingList
+	* 작성자 : 202-01
+	* 변경이력 :
+	* @param sqlSession
+	* @param page
+	* @return
+	* Method 설명 : 사용자 페이징 리스트 조회
+	 */
+	@Override
+	public List<User> getUserPagingList(SqlSession sqlSession, Page page) {
+		return sqlSession.selectList("user.getUserPagingList", page);
+	}
+
+	@Override
+	public int getUserTotalCnt(SqlSession sqlSession) {
+		return sqlSession.selectOne("user.getUserTotalCnt");
 	}
 
 	
