@@ -18,4 +18,21 @@
 		and		a.lprod_gu = #{lprod_gu}
 	</select>
 	
+	<select id="getLprodPagingList" resultType="lprodVo" parameterType="page">
+		select a.*
+		from
+			(select rownum rn, a.*
+			from
+				(select a.*
+				from lprod a
+				order by lprod_id) a) a
+		where rn between #{pagesize} * (#{page} - 1) + 1 and #{page} * #{pagesize}
+	</select>
+	
+	<!-- 사용자 전체 건수 조회  -->	
+	<select id = "getLprodTotalCnt" resultType = "Integer">
+		select count(*)
+		from lprod
+	</select>
+	
 </mapper>

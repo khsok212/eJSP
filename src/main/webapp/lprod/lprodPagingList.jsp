@@ -23,7 +23,7 @@
 			
 // 			var inputValue = $(this).find("input").val();
 // 	        console.log("inputValue: " + inputValue);
-	        
+	         
 	        var dataValue = $(this).data("lprodgu");         
 	        console.log("dataValue: " + dataValue);
 	         
@@ -67,9 +67,9 @@
 
 				<div class="row">
 					<div class="col-sm-8 blog-main">
-						<h2 class="sub-header">제품그룹 리스트</h2>
+						<h2 class="sub-header">제품그룹 페이징 리스트</h2>
 						<div class="table-responsive">
-							<table class="table table-striped">
+							<table class="table table-striped table-condensed">
 								<tr>
 									<th>제품번호</th>
 									<th>제품코드</th>
@@ -88,15 +88,51 @@
 							</table>
 						</div>
 
-						<a class="btn btn-default pull-right">버튼</a>
+						<a class="btn btn-default pull-right">제품 등록</a>
 
 						<div class="text-center">
 							<ul class="pagination">
-								<li><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
+							
+								<c:choose>
+									<c:when test="${param.page == 1 }">
+										<li class = "daisabled">
+											<span aria-hidden="true">&laquo;</span>
+										</li>
+									</c:when>
+									<c:otherwise>
+										<li><a href="${cp }/lprodPagingList?page=${param.page-1 }&pagesize=5" aria-label="Previous">
+										<span aria-hidden="true">&laquo;</span>
+										</a></li> 
+									</c:otherwise>
+								</c:choose>
+								
+								<c:forEach begin="1" end="${paginationSize }" var="page">
+								
+<%-- 									<li <c:if test="${page == param.page }"> class="active" </c:if> --%>
+<%-- 									><a href="${cp }/userPagingList?page=${page}&pagesize=15">${page }</a></li> --%>
+									<c:choose>
+									<c:when test="${page == param.page }">
+										<li class = "active"><span>${page }</span></li>
+									</c:when>
+									<c:otherwise>
+										<li><a href="${cp }/lprodPagingList?page=${page}&pagesize=5">${page }</a></li>
+									</c:otherwise>
+									</c:choose>
+									
+								</c:forEach>
+								
+								<c:choose>
+									<c:when test="${param.page >= paginationSize }">
+										<li class = "daisabled">
+											<span aria-hidden="true">&raquo;</span>
+										</li>
+									</c:when>
+									<c:otherwise>
+										<li><a href="${cp }/lprodPagingList?page=${param.page+1 }&pagesize=5" aria-label="Next">
+										<span aria-hidden="true">&raquo;</span>
+										</a></li> 
+									</c:otherwise>
+								</c:choose>
 							</ul>
 						</div>
 					</div>
