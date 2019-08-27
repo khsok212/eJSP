@@ -31,4 +31,6 @@ public interface IUserService {
 	int insertUser(User user);
 	
 	int deleteUser(String userId);
+	
+	int updateUser(User user);
 }

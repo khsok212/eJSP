@@ -63,4 +63,7 @@ public interface IUserDao {
 	int deleteUser(SqlSession sqlSession, String userId);
 	
 	
+	
+	int updateUser(SqlSession sqlSession, User user);
+	
 }

@@ -18,8 +18,22 @@
 <title>Jsp-basicLib</title>
 <%@include file="/commonJsp/basicLib.jsp" %>
 </head>
-
+<script>
+// 문서 로딩이 완료된 후
+$(document).ready(function(){
+	//사용자 정보 클릭시 이벤트 핸들러
+	$("#regBtn").on("click", function(){
+		  
+	   $("#frm").submit();
+	})
+})
+</script>
 <body>
+	<!-- 가져간다  -->
+	<form id="frm" action="${cp}/userModify" method="get">
+       <input type="hidden" id="userId" name="userId" value = "${user.userId }"/>
+    </form>
+
    <!-- header -->
    <%@include file="/commonJsp/header.jsp" %>
    
@@ -34,11 +48,19 @@
          <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
       
             <form class="form-horizontal" role="form">
+      		   <div class="form-group">
+                  <label for="userNm" class="col-sm-2 control-label">사용자 사진</label>
+                  <div class="col-sm-10">
+                     <label class="control-label">
+				<%-- <img src = "${cp }${user.realfilename2 }"/></label> --%>
+					 <img src = "${cp }/userPicture?userId=${user.userId}"/></label>
+                  </div>
+               </div>
       
                <div class="form-group">
                   <label for="userNm" class="col-sm-2 control-label">사용자 아이디</label>
                   <div class="col-sm-10">
-                     <label class="control-label">${user.userId }</label>
+                     <label class="control-label" data-userId = "${user.userId }">${user.userId }</label>
                   </div>
                </div>
       
@@ -55,15 +77,22 @@
                   </div>
                </div>
                <div class="form-group">
-                  <label for="pass" class="col-sm-2 control-label">등록일</label>
+                  <label for="reg_dt" class="col-sm-2 control-label">등록일</label>
                   <div class="col-sm-10">
                      <label class="control-label">${user.reg_dt_fmt }</label>
                   </div>
                </div>
       
+      		   <div class="form-group">
+                  <label for="pass" class="col-sm-2 control-label">비밀번호</label>
+                  <div class="col-sm-10">
+                     <label class="control-label">${user.pass }</label>
+                  </div>
+               </div>
+      
                <div class="form-group">
                   <div class="col-sm-offset-2 col-sm-10">
-                     <button type="submit" class="btn btn-default">사용자 수정</button>
+                      <button type="button" id = "regBtn" class="btn btn-info">사용자 수정</button>
                   </div>
                </div>
             </form>
