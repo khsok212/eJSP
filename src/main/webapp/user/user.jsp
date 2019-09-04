@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,7 +79,10 @@ $(document).ready(function(){
                <div class="form-group">
                   <label for="reg_dt" class="col-sm-2 control-label">등록일</label>
                   <div class="col-sm-10">
-                     <label class="control-label">${user.reg_dt_fmt }</label>
+                     <label class="control-label">
+                     	<fmt:formatDate value="${user.reg_dt }" pattern="yyyy/MM/dd" var="date"/>
+                     	${date }
+                     </label>
                   </div>
                </div>
       

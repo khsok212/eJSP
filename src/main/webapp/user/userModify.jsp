@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
     
 <!DOCTYPE html>
@@ -107,7 +107,8 @@ $(function(){
                   <label for="reg_dt" class="col-sm-2 control-label">생일</label>
                   <div class="col-sm-10">
                     <input type="date" class="form-control" id="reg_dt"
-								name="reg_dt" placeholder="생일" value="${user.reg_dt_fmt }">
+								name="reg_dt" placeholder="생일" 
+								value='<fmt:formatDate value="${user.reg_dt }" pattern="yyyy-MM-dd"/>'>
                   </div>
                </div>
                <div class="form-group">

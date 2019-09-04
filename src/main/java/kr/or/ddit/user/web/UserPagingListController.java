@@ -1,6 +1,7 @@
 package kr.or.ddit.user.web;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -28,6 +29,7 @@ public class UserPagingListController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// page, pagesize 파라미터 받기
+		
 		String pageStr = request.getParameter("page");
 		String pagesizeStr = request.getParameter("pagesize");
 		
