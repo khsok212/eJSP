@@ -28,9 +28,9 @@ public interface IUserService {
 	 */
 	public Map<String, Object> getUserPagingList(Page page);
 	
-	int insertUser(User user);
+	public int insertUser(User user);
 	
-	int deleteUser(String userId);
+	public int deleteUser(String userId);
 	
-	int updateUser(User user);
+	public int updateUser(User user);
 }

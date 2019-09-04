@@ -20,12 +20,11 @@ public class KISA_SHA256Test {
 	@Test
 	public void encryptTest() {
 		/***Given***/
-		String pass = "brown1234";
+		String pass = "cony1234";
 
 		/***When***/
 		String encryptedPass = KISA_SHA256.encrypt(pass);
 		logger.debug("enctyptedPass: " + encryptedPass);
-		System.out.println(encryptedPass);
 		
 		/***Then***/
 		// assertEquals("예상값", "실제값");

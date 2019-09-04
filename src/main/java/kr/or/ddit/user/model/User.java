@@ -81,6 +81,7 @@ public class User {
 	public Date getReg_dt() {
 		return reg_dt;
 	}
+	
 	public String getReg_dt_fmt() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		return sdf.format(reg_dt);

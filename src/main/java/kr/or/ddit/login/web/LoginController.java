@@ -31,7 +31,6 @@ public class LoginController extends HttpServlet {
 		userService = new UserService();
 	}
 	
-	
 	/**
 	 * 
 	* Method : doGet
@@ -82,6 +81,7 @@ public class LoginController extends HttpServlet {
 		logger.debug("login controller doPost()");
 		// userId, password 파라미터 logger 출력
 		String userId = request.getParameter("userId");
+		
 		// name속성을 가져온다 - login.jsp의 name
 		String pass = request.getParameter("pass");
 		
@@ -134,7 +134,6 @@ public class LoginController extends HttpServlet {
 		}else {
 			cookie.setMaxAge(0);	// 삭제
 		}
-		
 		response.addCookie(cookie);
 	}
 }

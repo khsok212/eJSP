@@ -25,7 +25,6 @@ public class FileuploadUtil {
 		for(String attr : attrs) {
 			if(attr.startsWith("filename")) {
 				String[] keyValue = attr.split("=");
-				
 				filename = keyValue[1].substring(keyValue[1].indexOf("\"")+1, keyValue[1].lastIndexOf("\""));
 				break;
 			}

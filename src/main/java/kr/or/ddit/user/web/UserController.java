@@ -17,9 +17,6 @@ import kr.or.ddit.user.service.IUserService;
 import kr.or.ddit.user.service.UserService;
 import kr.or.ddit.util.MybatisUtil;
 
-/**
- * Servlet implementation class UserController
- */
 @WebServlet("/user")
 public class UserController extends HttpServlet {
 	private static final long serialVersionUID = 1L;

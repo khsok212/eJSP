@@ -97,11 +97,11 @@ public class UserFormController extends HttpServlet {
 		// validation
 		Pattern p = Pattern.compile("^([a-zA-Z\\d\\.@]){5,20}$");
 		Matcher m = p.matcher(userId);
+		
 		if(!m.find()) {
 			request.setAttribute("userIdMsg", "사용자 아이디가 잘못되었습니다.");
 			doGet(request, response);
 		}else {
-			
 			logger.debug("user parameter : {}, {}, {}, {}, {}, {}, {}, {}",
 					userId, userNm, alias, reg_dt, addr1, addr2, zipcode, pass);
 			
