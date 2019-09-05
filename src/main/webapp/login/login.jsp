@@ -100,7 +100,7 @@
 		사용자 이름 : <%=userName %>
 		
       <form id = "frm" class="form-signin" action = "${cp}/login" method = "post">
-        <h2 class="form-signin-heading">Please sign in</h2>
+        <h2 class="form-signin-heading">로그인</h2>
         
         <label for="userId" class="sr-only">userId</label>
         <%
@@ -118,10 +118,10 @@
         <input type="password" id="pass" name = "pass" class="form-control" placeholder="Password" required value = "brown1234"> <!-- value = "123" -->
         <div class="checkbox">
           <label>
-            <input id = "rememberMe" name = "rememberMe" type="checkbox" value="remember-me"> Remember me
+            <input id = "rememberMe" name = "rememberMe" type="checkbox" value="remember-me"> 아이디 저장
           </label>
         </div>
-        <button id = "signinBtn" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button id = "signinBtn" class="btn btn-lg btn-primary btn-block" type="submit">로그인</button>
       </form>
 	
     </div> <!-- /container -->
