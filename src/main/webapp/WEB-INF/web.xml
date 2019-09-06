@@ -84,6 +84,14 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	
+	<listener>
+		<listener-class>kr.or.ddit.listener.ContextPathInitListener</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>kr.or.ddit.listener.SessionListener</listener-class>
+	</listener>
+	
 	
 	
 	

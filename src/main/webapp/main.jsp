@@ -42,6 +42,7 @@
 <%-- 					el : ${elTest} --%>
 					</h1>
 					<p class="lead blog-description">Jsp / Spring.</p>
+					<img src="user/게시판.gif">
 				</div>
 
 				<div class="row">

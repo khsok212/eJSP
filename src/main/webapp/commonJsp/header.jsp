@@ -19,6 +19,9 @@
 			<li><a href="#">Settings</a></li>
 			<li><a href="#">Profile</a></li>
 			<li><a href="#">Help</a></li>
+			
+			<!-- 0906 로그아웃 기능 -->
+			<li><a href="${cp }/logout">Logout</a></li>
 			<% User s_user = (User)session.getAttribute("S_USERVO"); %>
 <%-- 			<li><a href = "#">표현식 : <%=s_user.getUserNm() %></a></li> --%>
 <%-- 			<li><a href = "#">el(method) : ${S_USERVO.getUserNm()}</a></li> --%>

@@ -111,6 +111,8 @@ public class LoginController extends HttpServlet {
 			
 			HttpSession session = request.getSession();
 			logger.debug("session.getId() : {}", session.getId());
+			
+//			session.removeAttribute("S_USERVO");   // SessionListener 에서 remove부분 주석 풀었을 때 사용
 			session.setAttribute("S_USERVO", user);
 			request.setAttribute("elTest", "elTestValue");
 			

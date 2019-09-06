@@ -1,32 +1,26 @@
-package kr.or.ddit.dbConnection;
+package kr.or.ddit.listener;
 
 import java.io.IOException;
-
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//@WebServlet(urlPatterns = "/ContextPathInitServlet", loadOnStartup = 1)
-public class ContextPathInitServlet extends HttpServlet {
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+@WebServlet("/sessionList")
+public class SessionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-	@Override
-	public void init(ServletConfig config) throws ServletException {
-		
-		ServletContext application = config.getServletContext();
-		String cp = application.getContextPath();
-		application.setAttribute("cp", cp);
+    private static final Logger logger = LoggerFactory.getLogger(SessionServlet.class);
+    
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("/listener/sessionList.jsp").forward(request, response);
 	}
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	}
-
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
 	}
 
 }
